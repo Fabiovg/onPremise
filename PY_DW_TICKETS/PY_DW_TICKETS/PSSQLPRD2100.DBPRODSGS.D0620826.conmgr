@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PSSQLPRD2100.DBPRODSGS.D0620826"
+  DTS:DTSID="{3C66B2EE-AD65-400C-8ABB-CE30CE96D6F3}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PSSQLPRD2100;User ID=D0620826;Initial Catalog=DBPRODSGS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAP4UH6njumE2v3civBxd/8QAAAAACAAAAAAADZgAAwAAAABAAAABrNElmX6BMkPUDMIdSsfLwAAAAAASAAACgAAAAEAAAAPuw2HEdUcAFZOLiXVA50Z54AAAASU5r92EpsEf3yOf/AMv2ZwUXr59wQ6qgNE6PcMJWG9Q9EdaEw6aiZyBSFHb4PZko+HvupxdjALNXtK9Fuw7Vsc7MVABck5THt8OCk6UTeV5rH1I2Cyt+jzoakM7aPKkXzpSMzSYh3NFCAv4M3EFj0LwTf/ADTZMPFAAAAPKXBZ4q7cA5Bh4P6eNH3FRidkaH</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectInfo>
+    <Name>PY_DW_TICKETS</Name>
+    <LastWriteTime>2025-10-22T17:43:37.535148Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>PK_DW_SALUD_DTS_M_STG_DE_TICKETS.dtsx</Name>
+      <LastWriteTime>2025-07-10T21:21:34.7115946Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>PK_DW_SALUD_DTS_M_STG_DM_TICKETS.dtsx</Name>
+      <LastWriteTime>2025-10-28T19:40:24.8877657Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>PK_DW_SALUD_DTS_M_STG_DE_TICKETS_SN.dtsx</Name>
+      <LastWriteTime>2026-02-05T20:37:48.7536689Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>PK_DW_SALUD_DTS_M_STG_DM_TICKETS_SN.dtsx</Name>
+      <LastWriteTime>2025-12-04T15:58:18.6915177Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>

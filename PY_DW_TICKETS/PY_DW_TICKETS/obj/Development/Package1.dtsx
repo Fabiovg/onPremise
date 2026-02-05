@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/2/2024 3:55:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PSTERPRD1700"
+  DTS:CreatorName="EPPS\D0620826"
+  DTS:DTSID="{223DFF36-6067-4B00-BD90-FFC4BF754FF5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{E76149BE-FF09-4C05-B9A6-510048656348}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CS_STG_MAN_TICKETS_SLA"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3c47f18d-4951-4a22-8123-577ae2ced200}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CS_STG_MAN_TICKETS_SLA">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1bcf412e-2a8b-400c-b212-dad55c7e11eb}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UDWSSTAG00].[STG_MAM_TICKET_SLA]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="{E1AC3695-8849-48E9-ACBA-B4DDEF473A80}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[PSSQLDES0500.DBDESDWSALUD]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COD_TICKETSLA]"
+                          cachedDataType="i4"
+                          cachedName="COD_TICKETSLA"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COD_TICKETSLA]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COD_TICKETSLA]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GRUPOASIGNACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="25"
+                          cachedName="GRUPOASIGNACION"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPOASIGNACION]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPOASIGNACION]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SUBCATEGORIA1]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="SUBCATEGORIA1"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUBCATEGORIA1]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBCATEGORIA1]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VALORDIAINICIAL]"
+                          cachedDataType="i4"
+                          cachedName="VALORDIAINICIAL"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALORDIAINICIAL]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALORDIAINICIAL]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VALORDIAFINAL]"
+                          cachedDataType="i4"
+                          cachedName="VALORDIAFINAL"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALORDIAFINAL]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALORDIAFINAL]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TIPOTICKET]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="TIPOTICKET"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TIPOTICKET]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TIPOTICKET]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ESTADO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="1"
+                          cachedName="ESTADO"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ESTADO]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USUARIO_CREACION]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="USUARIO_CREACION"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USUARIO_CREACION]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[USUARIO_CREACION]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USUARIO_UPDATE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="60"
+                          cachedName="USUARIO_UPDATE"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USUARIO_UPDATE]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[USUARIO_UPDATE]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_CREACION]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_CREACION"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FECHA_UPDATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA_UPDATE"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_UPDATE]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_UPDATE]" />
+                        <inputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CATEGORIA]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="CATEGORIA"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORIA]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[COD_TICKETSLA]"
+                          dataType="i4"
+                          name="COD_TICKETSLA" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GRUPOASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="GRUPOASIGNACION" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SUBCATEGORIA1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SUBCATEGORIA1" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALORDIAINICIAL]"
+                          dataType="i4"
+                          name="VALORDIAINICIAL" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VALORDIAFINAL]"
+                          dataType="i4"
+                          name="VALORDIAFINAL" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TIPOTICKET]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="TIPOTICKET" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="ESTADO" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USUARIO_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="USUARIO_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[USUARIO_UPDATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="USUARIO_UPDATE" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FECHA_UPDATE]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_UPDATE" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[TICKET_SLA]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="{F8BF934B-2B96-48E9-B537-219934A35755}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[PSSQLPRD2100.DBPRODSGSWEB.D0620826]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COD_TICKETSLA]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COD_TICKETSLA]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[COD_TICKETSLA]"
+                          name="COD_TICKETSLA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPOASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPOASIGNACION]"
+                          length="25"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[GRUPOASIGNACION]"
+                          name="GRUPOASIGNACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBCATEGORIA1]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUBCATEGORIA1]"
+                          length="100"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBCATEGORIA1]"
+                          name="SUBCATEGORIA1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALORDIAINICIAL]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VALORDIAINICIAL]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALORDIAINICIAL]"
+                          name="VALORDIAINICIAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALORDIAFINAL]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VALORDIAFINAL]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[VALORDIAFINAL]"
+                          name="VALORDIAFINAL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TIPOTICKET]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TIPOTICKET]"
+                          length="1"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[TIPOTICKET]"
+                          name="TIPOTICKET"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ESTADO]"
+                          length="1"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ESTADO]"
+                          name="ESTADO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[USUARIO_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[USUARIO_CREACION]"
+                          length="60"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[USUARIO_CREACION]"
+                          name="USUARIO_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[USUARIO_UPDATE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[USUARIO_UPDATE]"
+                          length="60"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[USUARIO_UPDATE]"
+                          name="USUARIO_UPDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_UPDATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_UPDATE]"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[FECHA_UPDATE]"
+                          name="FECHA_UPDATE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          length="100"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CATEGORIA]"
+                          name="CATEGORIA"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[COD_TICKETSLA]"
+                          dataType="i4"
+                          name="COD_TICKETSLA" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GRUPOASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          name="GRUPOASIGNACION" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUBCATEGORIA1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SUBCATEGORIA1" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VALORDIAINICIAL]"
+                          dataType="i4"
+                          name="VALORDIAINICIAL" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VALORDIAFINAL]"
+                          dataType="i4"
+                          name="VALORDIAFINAL" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TIPOTICKET]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="TIPOTICKET" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          name="ESTADO" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[USUARIO_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="USUARIO_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[USUARIO_UPDATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          name="USUARIO_UPDATE" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_CREACION" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FECHA_UPDATE]"
+                          dataType="dbTimeStamp"
+                          name="FECHA_UPDATE" />
+                        <externalMetadataColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="CATEGORIA" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COD_TICKETSLA]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[COD_TICKETSLA]"
+                          name="COD_TICKETSLA" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPOASIGNACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="25"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GRUPOASIGNACION]"
+                          name="GRUPOASIGNACION" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUBCATEGORIA1]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUBCATEGORIA1]"
+                          name="SUBCATEGORIA1" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VALORDIAINICIAL]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VALORDIAINICIAL]"
+                          name="VALORDIAINICIAL" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VALORDIAFINAL]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[VALORDIAFINAL]"
+                          name="VALORDIAFINAL" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TIPOTICKET]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TIPOTICKET]"
+                          name="TIPOTICKET" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ESTADO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="1"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ESTADO]"
+                          name="ESTADO" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[USUARIO_CREACION]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[USUARIO_CREACION]"
+                          name="USUARIO_CREACION" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[USUARIO_UPDATE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="60"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[USUARIO_UPDATE]"
+                          name="USUARIO_UPDATE" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_CREACION]"
+                          name="FECHA_CREACION" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_UPDATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FECHA_UPDATE]"
+                          name="FECHA_UPDATE" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CATEGORIA]"
+                          name="CATEGORIA" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\CS_STG_MAN_TICKETS_SLA\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8d1f2494-46cc-451c-9695-8be3281af0ca}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E1AC3695-8849-48E9-ACBA-B4DDEF473A80}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE&#xA;[UDWSSTAG00].[STG_MAM_TICKET_SLA]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\CS_STG_MAN_TICKETS_SLA.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{fb4a6b3e-8c33-42ca-8240-814c911f4a85}"
+          DTS:From="Package\CS_STG_MAN_TICKETS_SLA\Execute SQL Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130.666666666667,42.6666666666667"
+          Id="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task"
+          TopLeft="86.166666666667,141.833333333334" />
+        <NodeLayout
+          Size="140,42.6666666666667"
+          Id="Package\CS_STG_MAN_TICKETS_SLA\Execute SQL Task"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\CS_STG_MAN_TICKETS_SLA.PrecedenceConstraints[Constraint]"
+          TopLeft="130,102.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.5000000000003,39.1666666666671"
+              Start="0,0"
+              End="21.5000000000003,31.6666666666671">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5833333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5833333333335"
+                    Point2="0,19.5833333333335"
+                    Point3="4,19.5833333333335" />
+                  <mssgle:LineSegment
+                    End="17.5000000000003,19.5833333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.5000000000003,19.5833333333335"
+                    Point2="21.5000000000003,19.5833333333335"
+                    Point3="21.5000000000003,23.5833333333335" />
+                  <mssgle:LineSegment
+                    End="21.5000000000003,31.6666666666671" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="383.333333333334,239.333333333334"
+          Size="383.333333333334,282"
+          Id="Package\CS_STG_MAN_TICKETS_SLA"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Destination"
+          TopLeft="651,334" />
+        <NodeLayout
+          Size="132,42.6666666666667"
+          Id="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task\OLE DB Source"
+          TopLeft="343,293" />
+        <EdgeLayout
+          Id="Package\CS_STG_MAN_TICKETS_SLA\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="475,314.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="176,41"
+              Start="0,0"
+              End="168.5,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="84,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="84,0"
+                    Point2="88,0"
+                    Point3="88,4" />
+                  <mssgle:LineSegment
+                    End="88,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="88,37"
+                    Point2="88,41"
+                    Point3="92,41" />
+                  <mssgle:LineSegment
+                    End="168.5,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

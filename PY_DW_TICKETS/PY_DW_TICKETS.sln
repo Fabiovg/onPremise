@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34931.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "PY_DW_TICKETS", "PY_DW_TICKETS\PY_DW_TICKETS.dtproj", "{DD8D9194-9D14-4437-8A0E-00158A323274}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD8D9194-9D14-4437-8A0E-00158A323274}.Development|Default.ActiveCfg = Development
+		{DD8D9194-9D14-4437-8A0E-00158A323274}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A68478C3-AD9F-4D1D-93F2-08AEBCAABF4C}
+	EndGlobalSection
+EndGlobal

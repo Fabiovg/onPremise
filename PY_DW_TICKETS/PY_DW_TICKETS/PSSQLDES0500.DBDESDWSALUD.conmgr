@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PSSQLDES0500.DBDESDWSALUD"
+  DTS:DTSID="{E1AC3695-8849-48E9-ACBA-B4DDEF473A80}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PSSQLDES0500;User ID=USDWSALUD01;Initial Catalog=DBDESDWSALUD;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQiWFhGDS/0S3gYgcznGkuAAAAAACAAAAAAADZgAAwAAAABAAAACY9ehHn7dK29S7VFUzrZGWAAAAAASAAACgAAAAEAAAABQtP7XAUjtpKYivZmvVbHJ4AAAA7kz/+gYCK1mYS1F1NU7XBbcKRH90BEdDoOypFRWb1G6fL0qWWoLr1YADSbuq+IDQYFLqVA3fmJoGo7llBwPx1KQNHyppcM6ZAM1PKyLFLH5b/SGBca2URqTD+b85Rl1RJ+PlZ4t1fWqrkc7iI5o4OpUOQ6K/LqB9FAAAAKfT1QHyfFu0yavYHgYVfEuarytE</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
