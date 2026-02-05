@@ -1,0 +1,2997 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/22/2019 10:29:27 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NBSIAR11637"
+  DTS:CreatorName="EPPS\S64051"
+  DTS:DTSID="{0EFB7E4F-A7E8-4CFC-99DC-D4F46C26E03D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="10250"
+  DTS:ObjectName="PK_DW_SALUD_DTS_M_STG_DE_SCTR"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="137"
+  DTS:VersionGUID="{F51E88BB-6AC7-4462-9ABC-DE956E6ED7F1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Detalle_Stock_Vigente_SCTR]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{A959821C-F57E-42FC-8D19-361AA02B16DB}"
+      DTS:ObjectName="Detalle_Stock_Vigente_SCTR">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::FullPathDataSCTR]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=\\pps-nas05\DataSalud\FILES\DWS\SCTR\ASEGURADOS\202511_Detalle_Stock_Vigente_SCTR.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{94AB1E73-DE59-4A4C-A8AB-B38F84312886}"
+      DTS:ObjectName="Id_Log">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{01AD7632-5482-4B36-A888-4C0438EED503}"
+      DTS:ObjectName="Id_Log_Malla">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{28DBF2DA-2DC5-428D-B28E-E9A92AA740AE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ContenedorNombre">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{26531A8B-A709-4BF8-A5A2-95D9EC7CDBAC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::PeriodoSCTR] +&quot;_Detalle_Stock_Vigente_SCTR.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileNameDataSCTR">
+      <DTS:VariableValue
+        DTS:DataType="8">202511_Detalle_Stock_Vigente_SCTR.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E136319-2CED-4941-A8C8-487652B3BD4E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::PeriodoSCTR] +&quot;_Detalle_Stock_Vigente_SCTR.csv&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileNameDataSCTR_CSV">
+      <DTS:VariableValue
+        DTS:DataType="8">202511_Detalle_Stock_Vigente_SCTR.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9FAE5A89-9609-4D34-B8EF-0578E2E1D52B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::PathDataSCTR] + @[User::FileNameDataSCTR]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullPathDataSCTR">
+      <DTS:VariableValue
+        DTS:DataType="8">\\pps-nas05\DataSalud\FILES\DWS\SCTR\ASEGURADOS\202511_Detalle_Stock_Vigente_SCTR.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7210C52-7406-4298-828D-214FFFE47B46}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::PathDataSCTR] +  @[User::FileNameDataSCTR_CSV]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FullPathDataSCTR_CSV">
+      <DTS:VariableValue
+        DTS:DataType="8">\\pps-nas05\DataSalud\FILES\DWS\SCTR\ASEGURADOS\202511_Detalle_Stock_Vigente_SCTR.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C6105A0-DE67-4B3F-9ADA-BDAEF4138616}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PathDataSCTR">
+      <DTS:VariableValue
+        DTS:DataType="8">\\pps-nas05\DataSalud\FILES\DWS\SCTR\ASEGURADOS\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17CDB89A-9E88-4F75-90DF-4A94467A6420}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="ISNULL( @[$Project::AnoMesProceso] ) || @[$Project::AnoMesProceso] == &quot;&quot;  || @[$Project::AnoMesProceso] == &quot; &quot; ?  (DT_WSTR, 6)( YEAR(DATEADD( &quot;mm&quot;, -1,  GETDATE() )) * 100 + MONTH(DATEADD( &quot;mm&quot;, -1, GETDATE() ))) : SUBSTRING( @[$Project::AnoMesProceso] ,7,4)+ SUBSTRING( @[$Project::AnoMesProceso]  ,4,2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="PeriodoSCTR">
+      <DTS:VariableValue
+        DTS:DataType="8">202511</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{89E96D8C-8B17-4C8A-9C6E-ABC7D4FF29CF}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="01 - CS_STG_ENVIO_CORREO_INICIO_MALLA">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Tarea Enviar correo"
+          DTS:DTSID="{d4e80c43-2eeb-491b-b5d8-cc48951105c2}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ENVIO CORREO INICIO"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">@[$Project::CorreoOrigen]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"Se dió inicio a la ejecución de la malla " +  @[System::PackageName] + "\n" + "Fecha y Hora " +  (DT_WSTR, 25) @[System::StartTime]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">"Inicio de la Malla " +   @[System::PackageName] + " - Periodo : " + @[User::PeriodoSCTR]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Project::CorreoDestino]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{B7944BA9-63AA-476C-92BA-79098BD16A5B}"
+              SendMailTask:From="ProyectosSalud@pacifico.com.pe"
+              SendMailTask:To="FabioValladaresG@pacifico.com.pe;EduardoCortavitarteA@pacifico.com.pe;jvioleta@pacifico.com.pe"
+              SendMailTask:Subject="Inicio de la Malla PK_DW_SALUD_DTS_M_STG_DE_SCTR - Periodo : 202511"
+              SendMailTask:MessageSource="Se dió inicio a la ejecución de la malla PK_DW_SALUD_DTS_M_STG_DE_SCTR&#xA;Fecha y Hora 10/12/2025 16:39:38" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO_err"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{040C6275-2138-4F8A-AD01-FF579E91A8FA}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ENVIO CORREO INICIO_err"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">@[$Project::CorreoOrigen]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"Se dió inicio a la ejecución de la malla " +  @[System::PackageName] + "\n" + "Fecha y Hora " +  (DT_WSTR, 25) @[System::StartTime]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">"Inicio de la Malla " +   @[System::PackageName] + " - Periodo : " + @[User::PeriodoSCTR]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Project::CorreoDestino]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{1B4E7170-AE10-456C-9B07-A074A3D7E44D}"
+              SendMailTask:From="ProyectosSalud@pacifico.com.pe"
+              SendMailTask:To="FabioValladaresG@pacifico.com.pe;EduardoCortavitarteA@pacifico.com.pe;jvioleta@pacifico.com.pe"
+              SendMailTask:Subject="Inicio de la Malla PK_DW_SALUD_DTS_M_STG_DE_SCTR - Periodo : 202511"
+              SendMailTask:MessageSource="Se dió inicio a la ejecución de la malla PK_DW_SALUD_DTS_M_STG_DE_SCTR&#xA;Fecha y Hora 10/12/2025 16:39:38" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Fin Log"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{7141BDB2-A371-4561-9C9A-EEFA828551B6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fin Log"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1801,'Fin de Ejecución ENVIO CORREO INICIO')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Fin Log Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{8AE7D628-2DDE-44E0-BF3C-09E8F07CF8CB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fin Log Error"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1801,'Error En Ejecución ENVIO CORREO INICIO')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Log Inicio"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{DE4A3943-EB03-46FB-A789-D51316A5D8CE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Inicio"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1801,'Inicio de Ejecución ENVIO CORREO INICIO')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Tarea de expresión"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Tarea de expresión"
+          DTS:DTSID="{FFDEB546-AA09-4EAC-B0D0-A9B0150E6D1F}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tarea de expresión"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::ContenedorNombre] =&quot;01 - CS_STG_ENVIO_CORREO_INICIO_MALLA&quot;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1FE8612C-694E-4C0A-9730-F82563AAA7B3}"
+          DTS:From="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Tarea de expresión"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Log Inicio" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{44F4FB9C-12D1-46D2-8491-327E4BB1E183}"
+          DTS:From="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Log Inicio"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{37FD0127-653B-4136-8F92-17F8BB6CB66B}"
+          DTS:From="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Fin Log" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{764EB3D5-A15D-42E3-B829-81180FB2D763}"
+          DTS:From="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Fin Log Error"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{36FC5787-AE5F-4319-89EC-620EFB389254}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{491A339F-C727-4A77-83C3-6B5F7546D910}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Carga STG_MAM_DETALLE_STOCK_VIGENTE"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[TIPO_DOCUMENTO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="TIPO_DOCUMENTO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[TIPO_DOCUMENTO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[NRO_DOCUMENTO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NRO_DOCUMENTO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_DOCUMENTO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[APELLIDO_PATERNO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="APELLIDO_PATERNO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_PATERNO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[APELLIDO_MATERNO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="APELLIDO_MATERNO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_MATERNO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[PRIMER_NOMBRE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="PRIMER_NOMBRE"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[PRIMER_NOMBRE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[SEGUNDO_NOMBRE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SEGUNDO_NOMBRE"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEGUNDO_NOMBRE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[FEC_NACIMIENTO]"
+                          cachedDataType="date"
+                          cachedName="FEC_NACIMIENTO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_NACIMIENTO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[SEXO]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="SEXO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEXO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[NRO_CONTRATO]"
+                          cachedDataType="r8"
+                          cachedName="NRO_CONTRATO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_CONTRATO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[COD_CLIENTE]"
+                          cachedDataType="r8"
+                          cachedName="COD_CLIENTE"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[RUC_CLIENTE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="RUC_CLIENTE"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[RUC_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[NOMBRE_CLIENTE]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NOMBRE_CLIENTE"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[FEC_INI_AFIL]"
+                          cachedDataType="date"
+                          cachedName="FEC_INI_AFIL"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_INI_AFIL]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[COD_BROKER]"
+                          cachedDataType="r8"
+                          cachedName="COD_BROKER"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_BROKER]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[NOMBRE_BROKER]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NOMBRE_BROKER"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_BROKER]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input].Columns[AÑO_MES_PROCESO]"
+                          cachedDataType="r8"
+                          cachedName="AÑO_MES_PROCESO"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[AÑO_MES_PROCESO]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TIPO_DOCUMENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TIPO_DOCUMENTO]"
+                          name="Copy of TIPO_DOCUMENTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[TIPO_DOCUMENTO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NRO_DOCUMENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NRO_DOCUMENTO]"
+                          name="Copy of NRO_DOCUMENTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_DOCUMENTO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of APELLIDO_PATERNO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of APELLIDO_PATERNO]"
+                          name="Copy of APELLIDO_PATERNO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_PATERNO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of APELLIDO_MATERNO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of APELLIDO_MATERNO]"
+                          name="Copy of APELLIDO_MATERNO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_MATERNO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PRIMER_NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PRIMER_NOMBRE]"
+                          name="Copy of PRIMER_NOMBRE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[PRIMER_NOMBRE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SEGUNDO_NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SEGUNDO_NOMBRE]"
+                          name="Copy of SEGUNDO_NOMBRE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEGUNDO_NOMBRE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FEC_NACIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FEC_NACIMIENTO]"
+                          name="Copy of FEC_NACIMIENTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_NACIMIENTO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SEXO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SEXO]"
+                          name="Copy of SEXO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEXO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NRO_CONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NRO_CONTRATO]"
+                          name="Copy of NRO_CONTRATO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_CONTRATO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_CLIENTE]"
+                          name="Copy of COD_CLIENTE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_CLIENTE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RUC_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RUC_CLIENTE]"
+                          name="Copy of RUC_CLIENTE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[RUC_CLIENTE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="300"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOMBRE_CLIENTE]"
+                          name="Copy of NOMBRE_CLIENTE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_CLIENTE]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FEC_INI_AFIL]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="20"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FEC_INI_AFIL]"
+                          name="Copy of FEC_INI_AFIL"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_INI_AFIL]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_BROKER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_BROKER]"
+                          name="Copy of COD_BROKER"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_BROKER]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOMBRE_BROKER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="300"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOMBRE_BROKER]"
+                          name="Copy of NOMBRE_BROKER"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_BROKER]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AÑO_MES_PROCESO]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AÑO_MES_PROCESO]"
+                          name="Copy of AÑO_MES_PROCESO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[AÑO_MES_PROCESO]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Detalle_Stock_Vigente_SCTR"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">BD$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Detalle_Stock_Vigente_SCTR]"
+                      connectionManagerRefId="Package.ConnectionManagers[Detalle_Stock_Vigente_SCTR]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[TIPO_DOCUMENTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[TIPO_DOCUMENTO]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[TIPO_DOCUMENTO]"
+                          name="TIPO_DOCUMENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_DOCUMENTO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NRO_DOCUMENTO]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_DOCUMENTO]"
+                          name="NRO_DOCUMENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_PATERNO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[APELLIDO_PATERNO]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_PATERNO]"
+                          name="APELLIDO_PATERNO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_MATERNO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[APELLIDO_MATERNO]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[APELLIDO_MATERNO]"
+                          name="APELLIDO_MATERNO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[PRIMER_NOMBRE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[PRIMER_NOMBRE]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[PRIMER_NOMBRE]"
+                          name="PRIMER_NOMBRE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEGUNDO_NOMBRE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[SEGUNDO_NOMBRE]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEGUNDO_NOMBRE]"
+                          name="SEGUNDO_NOMBRE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_NACIMIENTO]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[FEC_NACIMIENTO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_NACIMIENTO]"
+                          name="FEC_NACIMIENTO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEXO]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[SEXO]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[SEXO]"
+                          name="SEXO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_CONTRATO]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NRO_CONTRATO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NRO_CONTRATO]"
+                          name="NRO_CONTRATO"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_CLIENTE]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[COD_CLIENTE]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_CLIENTE]"
+                          name="COD_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[RUC_CLIENTE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[RUC_CLIENTE]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[RUC_CLIENTE]"
+                          name="RUC_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_CLIENTE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NOMBRE_CLIENTE]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_CLIENTE]"
+                          name="NOMBRE_CLIENTE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_INI_AFIL]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[FEC_INI_AFIL]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[FEC_INI_AFIL]"
+                          name="FEC_INI_AFIL"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_BROKER]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[COD_BROKER]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[COD_BROKER]"
+                          name="COD_BROKER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_BROKER]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NOMBRE_BROKER]"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[NOMBRE_BROKER]"
+                          name="NOMBRE_BROKER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[AÑO_MES_PROCESO]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[AÑO_MES_PROCESO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].Columns[AÑO_MES_PROCESO]"
+                          name="AÑO_MES_PROCESO"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[TIPO_DOCUMENTO]"
+                          dataType="wstr"
+                          length="255"
+                          name="TIPO_DOCUMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NRO_DOCUMENTO]"
+                          dataType="r8"
+                          name="NRO_DOCUMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[APELLIDO_PATERNO]"
+                          dataType="wstr"
+                          length="255"
+                          name="APELLIDO_PATERNO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[APELLIDO_MATERNO]"
+                          dataType="wstr"
+                          length="255"
+                          name="APELLIDO_MATERNO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[PRIMER_NOMBRE]"
+                          dataType="wstr"
+                          length="255"
+                          name="PRIMER_NOMBRE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[SEGUNDO_NOMBRE]"
+                          dataType="wstr"
+                          length="255"
+                          name="SEGUNDO_NOMBRE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[FEC_NACIMIENTO]"
+                          dataType="date"
+                          name="FEC_NACIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[SEXO]"
+                          dataType="wstr"
+                          length="255"
+                          name="SEXO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NRO_CONTRATO]"
+                          dataType="r8"
+                          name="NRO_CONTRATO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[COD_CLIENTE]"
+                          dataType="r8"
+                          name="COD_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[RUC_CLIENTE]"
+                          dataType="r8"
+                          name="RUC_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NOMBRE_CLIENTE]"
+                          dataType="wstr"
+                          length="255"
+                          name="NOMBRE_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[FEC_INI_AFIL]"
+                          dataType="date"
+                          name="FEC_INI_AFIL" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[COD_BROKER]"
+                          dataType="r8"
+                          name="COD_BROKER" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[NOMBRE_BROKER]"
+                          dataType="wstr"
+                          length="255"
+                          name="NOMBRE_BROKER" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output].ExternalColumns[AÑO_MES_PROCESO]"
+                          dataType="r8"
+                          name="AÑO_MES_PROCESO" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[TIPO_DOCUMENTO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[TIPO_DOCUMENTO]"
+                          name="TIPO_DOCUMENTO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NRO_DOCUMENTO]"
+                          dataType="r8"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NRO_DOCUMENTO]"
+                          name="NRO_DOCUMENTO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[APELLIDO_PATERNO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[APELLIDO_PATERNO]"
+                          name="APELLIDO_PATERNO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[APELLIDO_MATERNO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[APELLIDO_MATERNO]"
+                          name="APELLIDO_MATERNO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[PRIMER_NOMBRE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[PRIMER_NOMBRE]"
+                          name="PRIMER_NOMBRE" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[SEGUNDO_NOMBRE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[SEGUNDO_NOMBRE]"
+                          name="SEGUNDO_NOMBRE" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[FEC_NACIMIENTO]"
+                          dataType="date"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[FEC_NACIMIENTO]"
+                          name="FEC_NACIMIENTO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[SEXO]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[SEXO]"
+                          name="SEXO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NRO_CONTRATO]"
+                          dataType="r8"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NRO_CONTRATO]"
+                          name="NRO_CONTRATO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[COD_CLIENTE]"
+                          dataType="r8"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[COD_CLIENTE]"
+                          name="COD_CLIENTE" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[RUC_CLIENTE]"
+                          dataType="r8"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[RUC_CLIENTE]"
+                          name="RUC_CLIENTE" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NOMBRE_CLIENTE]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NOMBRE_CLIENTE]"
+                          name="NOMBRE_CLIENTE" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[FEC_INI_AFIL]"
+                          dataType="date"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[FEC_INI_AFIL]"
+                          name="FEC_INI_AFIL" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[COD_BROKER]"
+                          dataType="r8"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[COD_BROKER]"
+                          name="COD_BROKER" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NOMBRE_BROKER]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[NOMBRE_BROKER]"
+                          name="NOMBRE_BROKER" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[AÑO_MES_PROCESO]"
+                          dataType="r8"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[AÑO_MES_PROCESO]"
+                          name="AÑO_MES_PROCESO" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="STG_MAM_DETALLE_STOCK_VIGENTE"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[UDWSSTAG00].[STG_MAM_DETALLE_STOCK_VIGENTE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Connections[OleDbConnection]"
+                      connectionManagerID="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[PSSQLDES0500 DBDESDWSALUD USDWSALUD01]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of TIPO_DOCUMENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of TIPO_DOCUMENTO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_DOCUMENTO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TIPO_DOCUMENTO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of NRO_DOCUMENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of NRO_DOCUMENTO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NRO_DOCUMENTO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NRO_DOCUMENTO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of APELLIDO_PATERNO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of APELLIDO_PATERNO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[APELLIDO_PATERNO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of APELLIDO_PATERNO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of APELLIDO_MATERNO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of APELLIDO_MATERNO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[APELLIDO_MATERNO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of APELLIDO_MATERNO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of PRIMER_NOMBRE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of PRIMER_NOMBRE"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[PRIMER_NOMBRE]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PRIMER_NOMBRE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of SEGUNDO_NOMBRE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Copy of SEGUNDO_NOMBRE"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[SEGUNDO_NOMBRE]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SEGUNDO_NOMBRE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of FEC_NACIMIENTO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Copy of FEC_NACIMIENTO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[FEC_NACIMIENTO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FEC_NACIMIENTO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of SEXO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Copy of SEXO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[SEXO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SEXO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of NRO_CONTRATO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Copy of NRO_CONTRATO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NRO_CONTRATO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NRO_CONTRATO]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of COD_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of COD_CLIENTE"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[COD_CLIENTE]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of RUC_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of RUC_CLIENTE"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[RUC_CLIENTE]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RUC_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of NOMBRE_CLIENTE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="300"
+                          cachedName="Copy of NOMBRE_CLIENTE"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CLIENTE]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOMBRE_CLIENTE]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of FEC_INI_AFIL]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="Copy of FEC_INI_AFIL"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[FEC_INI_AFIL]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FEC_INI_AFIL]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of COD_BROKER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Copy of COD_BROKER"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[COD_BROKER]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of COD_BROKER]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of NOMBRE_BROKER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="300"
+                          cachedName="Copy of NOMBRE_BROKER"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_BROKER]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of NOMBRE_BROKER]" />
+                        <inputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].Columns[Copy of AÑO_MES_PROCESO]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="Copy of AÑO_MES_PROCESO"
+                          externalMetadataColumnId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[ANIO_MES_PROCESO]"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of AÑO_MES_PROCESO]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[TIPO_DOCUMENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="TIPO_DOCUMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NRO_DOCUMENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="NRO_DOCUMENTO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[APELLIDO_PATERNO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="APELLIDO_PATERNO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[APELLIDO_MATERNO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="APELLIDO_MATERNO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[PRIMER_NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="PRIMER_NOMBRE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[SEGUNDO_NOMBRE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="SEGUNDO_NOMBRE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[FEC_NACIMIENTO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="FEC_NACIMIENTO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[SEXO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="SEXO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NRO_CONTRATO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="NRO_CONTRATO" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[COD_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="COD_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[RUC_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="RUC_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_CLIENTE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="300"
+                          name="NOMBRE_CLIENTE" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[FEC_INI_AFIL]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="FEC_INI_AFIL" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[COD_BROKER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="COD_BROKER" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[NOMBRE_BROKER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="300"
+                          name="NOMBRE_BROKER" />
+                        <externalMetadataColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input].ExternalColumns[ANIO_MES_PROCESO]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="ANIO_MES_PROCESO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE.Paths[Data Conversion Output]"
+                  endId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE.Inputs[OLE DB Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE.Paths[Excel Source Output]"
+                  endId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR.Outputs[Excel Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Fin Log"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{4112C001-A0C6-4FDC-995B-AB4980D3A82F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fin Log"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1802,'fIN de Ejecución UDWSSTAG00.STG_MAM_DETALLE_STOCK_VIGENTE')&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="$Package::Id_Log"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Log Inicio"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{58D32D54-DB13-46EF-8FE7-5FA28F6594E6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Inicio"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1802,'Inicio de Ejecución UDWSSTAG00.STG_MAM_DETALLE_STOCK_VIGENTE')&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Trunca Tabla"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{EC2EDF33-EBA6-43F1-98BF-32986F1E0E90}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Trunca Tabla"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="TRUNCATE TABLE UDWSSTAG00.STG_MAM_DETALLE_STOCK_VIGENTE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B7851DC9-CDB3-4BEE-846C-663383B45AD5}"
+          DTS:From="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Log Inicio"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Trunca Tabla" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A6958CB6-AB64-4A94-A1D9-FD3821C2EA8F}"
+          DTS:From="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Trunca Tabla"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E9D4187F-98B0-4C4D-9AB9-4DF93812ED39}"
+          DTS:From="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Fin Log" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2DE5E938-B08C-43A5-937E-50D903103C2A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="03 - CS_STG_ENVIO_CORREO_FIN_MALLA">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\ENVIO CORREO FIN"
+          DTS:CreationName="Microsoft.SendMailTask"
+          DTS:Description="Send Mail Task"
+          DTS:DTSID="{E5F8EECE-FB48-4084-B2CD-FF391CB0121F}"
+          DTS:ExecutableType="Microsoft.SendMailTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ENVIO CORREO FIN"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="FromLine">@[$Project::CorreoOrigen]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="MessageSource">"Se finalizó la ejecución de la malla " +  @[System::PackageName] + "\n" + "Fecha y Hora " + SUBSTRING((DT_STR,30, 1252) GETDATE(), 1, 19)</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="Subject">"Fin de la Malla " +   @[System::PackageName] + " - Periodo : " +   @[User::PeriodoSCTR]</DTS:PropertyExpression>
+          <DTS:PropertyExpression
+            DTS:Name="ToLine">@[$Project::CorreoDestino]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SendMailTask:SendMailTaskData
+              SendMailTask:SMTPServer="{B7944BA9-63AA-476C-92BA-79098BD16A5B}"
+              SendMailTask:From="ProyectosSalud@pacifico.com.pe"
+              SendMailTask:To="FabioValladaresG@pacifico.com.pe;EduardoCortavitarteA@pacifico.com.pe;jvioleta@pacifico.com.pe"
+              SendMailTask:Subject="Fin de la Malla PK_DW_SALUD_DTS_M_STG_DE_SCTR - Periodo : 202511"
+              SendMailTask:MessageSource="Se finalizó la ejecución de la malla PK_DW_SALUD_DTS_M_STG_DE_SCTR&#xA;Fecha y Hora 2025-12-10 16:39:41" xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Fin Log"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{03347549-5167-429F-AB3B-9DC5C90CBE93}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fin Log"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1803,'Fin de Ejecución ENVIO CORREO FIN')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Fin Log Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{2E177806-1618-406A-9CBB-0382315222D0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Fin Log Error"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1803,'Error En Ejecución ENVIO CORREO FIN')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Log Inicio"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{1E32B7CD-954E-45ED-A80F-995852E81DD5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Log Inicio"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+              SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1803,'Inicio de Ejecución ENVIO CORREO FIN')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Tarea de expresión"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Tarea de expresión"
+          DTS:DTSID="{6A455D56-8617-49F5-BA28-48563E9B34B6}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Tarea de expresión"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::ContenedorNombre] =&quot;03 - CS_STG_ENVIO_CORREO_FIN_MALLA&quot;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E46B04FB-BD1D-4AE8-ABAC-0B5FA55D3480}"
+          DTS:From="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Tarea de expresión"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Log Inicio" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{3E268AD1-6726-45FC-989D-5CBF4B47F33D}"
+          DTS:From="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Log Inicio"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\ENVIO CORREO FIN" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{9B3C5C3D-90F4-44BB-8DBF-3F31C37D0D6A}"
+          DTS:From="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\ENVIO CORREO FIN"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Fin Log" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{4FBF8C0C-FBC9-4FF4-AB4A-C9EAFE2297D3}"
+          DTS:From="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\ENVIO CORREO FIN"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Fin Log Error"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ENVIO CORREO DE ERROR"
+      DTS:CreationName="Microsoft.SendMailTask"
+      DTS:Description="Send Mail Task"
+      DTS:DTSID="{8B0809BE-57A8-48C5-BDF6-31F9CAA3FA11}"
+      DTS:ExecutableType="Microsoft.SendMailTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ENVIO CORREO DE ERROR"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="FromLine">@[$Project::CorreoOrigen]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="MessageSource">"Error en el contenedor "  + @[User::ContenedorNombre]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Subject">"Error en la malla " +  @[System::PackageName] + " - Periodo : " +   @[User::PeriodoSCTR]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ToLine">@[$Project::CorreoDestino]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SendMailTask:SendMailTaskData
+          SendMailTask:SMTPServer="{B7944BA9-63AA-476C-92BA-79098BD16A5B}"
+          SendMailTask:From="ProyectosSalud@pacifico.com.pe"
+          SendMailTask:To="FabioValladaresG@pacifico.com.pe;EduardoCortavitarteA@pacifico.com.pe;jvioleta@pacifico.com.pe"
+          SendMailTask:Subject="Error en la malla PK_DW_SALUD_DTS_M_STG_DE_SCTR - Periodo : 202511"
+          SendMailTask:MessageSource="Error en el contenedor " xmlns:SendMailTask="www.microsoft.com/sqlserver/dts/tasks/sendmailtask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fin Log Malla STG SCTR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C7382686-7999-451C-B3BF-2E47E6A32B0D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fin Log Malla STG SCTR"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+          SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1800,'Fin de Ejecución Malla STG SCTR ASEGURADOS - ' + ?)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::PeriodoSCTR"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Inicio Log Malla STG SCTR"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{6B63BABF-FB86-4305-896E-FEC4D22BDF10}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Inicio Log Malla STG SCTR"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+          SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1800,'Inicio de Ejecución Malla STG SCTR ASEGURADOS - ' + ?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::PeriodoSCTR"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Log Error En Malla"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{13673B71-3095-44F9-B4CE-B27ADDB97935}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Log Error En Malla"
+      DTS:ThreadHint="4">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+          SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1899,'Error en el contenedor ' + ? + ' de la Malla ' + ? + ' del periodo ' + ? )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::ContenedorNombre"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::PeriodoSCTR"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Log Error Envio Correo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B6202953-6234-45D3-BEA5-5F0EE8FAF039}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Log Error Envio Correo"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+          SQLTask:SqlStatementSource="INSERT INTO DBO.BITACORA_EXTRACCION(ID_LOG, MENSAJE) VALUES (1899,'Error En ENVIO CORREO ERROR')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Variable Fin Log"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Tarea de expresión"
+      DTS:DTSID="{37B28740-9320-4391-930C-16922277458A}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Variable Fin Log"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::ContenedorNombre] =&quot;Fin Log Malla STG Contabilidad&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Variable Inicio Log"
+      DTS:CreationName="Microsoft.ExpressionTask"
+      DTS:Description="Tarea de expresión"
+      DTS:DTSID="{861422F9-64A3-48FA-AFD8-DAF57D0A989A}"
+      DTS:ExecutableType="Microsoft.ExpressionTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Variable Inicio Log"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExpressionTask
+          Expression="@[User::ContenedorNombre]  =&quot;Inicio Log Malla STG SCTR ASEGURADOS&quot;" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DFA8D464-1E8E-4968-A171-66F73D42B08D}"
+      DTS:From="Package\Inicio Log Malla STG SCTR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3EA94561-4A68-4EEC-98F9-CEB0E31EE1B0}"
+      DTS:From="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{DC967D7A-6FFD-4764-A6C3-D0AFEA912868}"
+      DTS:From="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\ENVIO CORREO DE ERROR"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{D165DC79-8995-49A6-8824-4ECC7E0D80AA}"
+      DTS:From="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\ENVIO CORREO DE ERROR"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{FF49B419-89D6-4285-84FF-8C3D2648C266}"
+      DTS:From="Package\Inicio Log Malla STG SCTR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\ENVIO CORREO DE ERROR"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{8E73D1B9-3DB1-403F-9CEB-0E059B4E29C1}"
+      DTS:From="Package\Variable Inicio Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Inicio Log Malla STG SCTR" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{1B8970A2-D71B-42F5-BA57-34517746964C}"
+      DTS:From="Package\Variable Fin Log"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Fin Log Malla STG SCTR" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{502CC1FE-D96B-4898-9614-B2C288C4FEAC}"
+      DTS:From="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{97E22996-C26E-409C-99F7-5C3E75FFB2BD}"
+      DTS:From="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Variable Fin Log"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{0D0E30D5-5052-4A54-88E7-9CBBB1F2DE68}"
+      DTS:From="Package\Log Error Envio Correo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Log Error En Malla" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{FAF98196-D377-4BAF-B6ED-0C36B3A015D8}"
+      DTS:From="Package\ENVIO CORREO DE ERROR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Log Error En Malla" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{72EB15F0-AE74-40ED-97F5-07E1A4ED6893}"
+      DTS:From="Package\ENVIO CORREO DE ERROR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Log Error Envio Correo"
+      DTS:Value="1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{E341667A-4385-4ED4-812A-3BA779B534BA}"
+      DTS:From="Package\Fin Log Malla STG SCTR"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\ENVIO CORREO DE ERROR"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{277ED79B-3869-4E06-B909-BCEF117FB0D5}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{3A3DDF44-8AA7-4BB2-9F39-B6D33BCE09FD}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnTaskFailed]"
+      DTS:CreationName="OnTaskFailed"
+      DTS:DTSID="{22839141-1EB3-48BB-96A4-ADE6E016DC6C}"
+      DTS:EventID="1157645312"
+      DTS:EventName="OnTaskFailed"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{C691131F-78C8-4567-88E9-F6E57DE36E30}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="190,42"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO"
+          TopLeft="744,10" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\ENVIO CORREO INICIO_err"
+          TopLeft="205.111111111111,110.111111111111" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Fin Log"
+          TopLeft="49.2244901573699,109.586550694765" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Fin Log Error"
+          TopLeft="167,178.586550694765" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Log Inicio"
+          TopLeft="266,16.9378082671375" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA\Tarea de expresión"
+          TopLeft="49,19" />
+        <EdgeLayout
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint]"
+          TopLeft="218,38.9689041335687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,0"
+              Start="0,0"
+              End="40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint 1]"
+          TopLeft="390,34.4689041335687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="354,0"
+              Start="0,0"
+              End="346.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="346.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint 2]"
+          TopLeft="808.666666666667,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-702.942176509297,57.586550694765"
+              Start="0,0"
+              End="-702.942176509297,50.086550694765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3231541436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.3231541436"
+                    Point2="0,23.3231541436"
+                    Point3="-4,23.3231541436" />
+                  <mssgle:LineSegment
+                    End="-698.942176509297,23.3231541436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-698.942176509297,23.3231541436"
+                    Point2="-702.942176509297,23.3231541436"
+                    Point3="-702.942176509297,27.3231541436" />
+                  <mssgle:LineSegment
+                    End="-702.942176509297,50.086550694765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA.PrecedenceConstraints[Constraint 4]"
+          TopLeft="869.333333333333,52">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-632.333333333333,126.586550694765"
+              Start="0,0"
+              End="-632.333333333333,119.086550694765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.2688743941219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.2688743941219"
+                    Point2="0,51.2688743941219"
+                    Point3="-4,51.2688743941219" />
+                  <mssgle:LineSegment
+                    End="-628.333333333333,51.2688743941219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-628.333333333333,51.2688743941219"
+                    Point2="-632.333333333333,51.2688743941219"
+                    Point3="-632.333333333333,55.2688743941219" />
+                  <mssgle:LineSegment
+                    End="-632.333333333333,119.086550694765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-331.408014322917,56.2688743941219,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="1018,312"
+          Size="321.333333333334,42.6666666666667"
+          Id="Package\01 - CS_STG_ENVIO_CORREO_INICIO_MALLA"
+          TopLeft="58.428572100036,137.75294303828" />
+        <NodeLayout
+          Size="313.333333333334,42.6666666666667"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE"
+          TopLeft="259.94286554103,99.8941213620988" />
+        <NodeLayout
+          Size="113.333333333334,42"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Fin Log"
+          TopLeft="71.000005585807,110.588238786084" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Log Inicio"
+          TopLeft="26.9999992506845,19.9058818467348" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Trunca Tabla"
+          TopLeft="261.22857816268,23.8235322001896" />
+        <EdgeLayout
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE.PrecedenceConstraints[Constraint]"
+          TopLeft="150.999999250684,42.8647070234622">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.228578911996,0"
+              Start="0,0"
+              End="102.728578911996,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="102.728578911996,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE.PrecedenceConstraints[Constraint 1]"
+          TopLeft="331.22857816268,65.8235322001896">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.3809540450167,34.0705891619092"
+              Start="0,0"
+              End="85.3809540450167,26.5705891619092">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0352945809546" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.0352945809546"
+                    Point2="0,17.0352945809546"
+                    Point3="4,17.0352945809546" />
+                  <mssgle:LineSegment
+                    End="81.3809540450167,17.0352945809546" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.3809540450167,17.0352945809546"
+                    Point2="85.3809540450167,17.0352945809546"
+                    Point3="85.3809540450167,21.0352945809546" />
+                  <mssgle:LineSegment
+                    End="85.3809540450167,26.5705891619092" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE.PrecedenceConstraints[Constraint 2]"
+          TopLeft="259.94286554103,121.227454695432">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.6095266218898,10.3607840906519"
+              Start="0,0"
+              End="-68.1095266218898,10.3607840906519">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-33.8047633109449,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33.8047633109449,0"
+                    Point2="-37.8047633109449,0"
+                    Point3="-37.8047633109449,4" />
+                  <mssgle:LineSegment
+                    End="-37.8047633109449,6.36078409065186" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-37.8047633109449,6.36078409065186"
+                    Point2="-37.8047633109449,10.3607840906519"
+                    Point3="-41.8047633109449,10.3607840906519" />
+                  <mssgle:LineSegment
+                    End="-68.1095266218898,10.3607840906519" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="828,272"
+          Size="828,42.6666666666667"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE"
+          TopLeft="490.857146584258,135.75294303828" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\ENVIO CORREO FIN"
+          TopLeft="249,131" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Fin Log"
+          TopLeft="61.2244901573699,131.648742427628" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Fin Log Error"
+          TopLeft="241,208.648742427628" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Log Inicio"
+          TopLeft="278,39" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA\Tarea de expresión"
+          TopLeft="61,41.0621917328625" />
+        <EdgeLayout
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint]"
+          TopLeft="230,61.0310958664313">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48,0"
+              Start="0,0"
+              End="40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint 1]"
+          TopLeft="338.25,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint 2]"
+          TopLeft="249,152.324371213814">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-74.7755098426301,0"
+              Start="0,0"
+              End="-67.2755098426301,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-67.2755098426301,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA.PrecedenceConstraints[Constraint 3]"
+          TopLeft="336,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,35.6487424276277"
+              Start="0,0"
+              End="-25,28.1487424276277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.8243712138138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.8243712138138"
+                    Point2="0,17.8243712138138"
+                    Point3="-4,17.8243712138138" />
+                  <mssgle:LineSegment
+                    End="-21,17.8243712138138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,17.8243712138138"
+                    Point2="-25,17.8243712138138"
+                    Point3="-25,21.8243712138138" />
+                  <mssgle:LineSegment
+                    End="-25,28.1487424276277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.74134765625,22.8243712138138,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="False"
+          PanelSize="455,274"
+          Size="305.333333333334,42.6666666666667"
+          Id="Package\03 - CS_STG_ENVIO_CORREO_FIN_MALLA"
+          TopLeft="508,217" />
+        <NodeLayout
+          Size="206.666666666667,42"
+          Id="Package\ENVIO CORREO DE ERROR"
+          TopLeft="520,327" />
+        <NodeLayout
+          Size="190.666666666667,42"
+          Id="Package\Fin Log Malla STG SCTR"
+          TopLeft="46.857150262716,220.835295893659" />
+        <NodeLayout
+          Size="202.666666666667,42"
+          Id="Package\Inicio Log Malla STG SCTR"
+          TopLeft="81.428572100036,47.6117631100453" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Log Error En Malla"
+          TopLeft="807.857150262716,326" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Log Error Envio Correo"
+          TopLeft="553.857150262716,434" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Variable Fin Log"
+          TopLeft="283.428572100036,223.75294303828" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Variable Inicio Log"
+          TopLeft="387,51" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="150.428572100036,89.6117631100453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.5,48.1411799282347"
+              Start="0,0"
+              End="68.5,40.6411799282347">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4823543404586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.4823543404586"
+                    Point2="0,19.4823543404586"
+                    Point3="4,19.4823543404586" />
+                  <mssgle:LineSegment
+                    End="64.5,19.4823543404586" />
+                  <mssgle:CubicBezierSegment
+                    Point1="64.5,19.4823543404586"
+                    Point2="68.5,19.4823543404586"
+                    Point3="68.5,23.4823543404586" />
+                  <mssgle:LineSegment
+                    End="68.5,40.6411799282347" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1041.52381325092,178.419609704947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-380.857146584258,38.5803902950533"
+              Start="0,0"
+              End="-380.857146584258,31.0803902950533">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.4768007355277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4768007355277"
+                    Point2="0,15.4768007355277"
+                    Point3="-4,15.4768007355277" />
+                  <mssgle:LineSegment
+                    End="-376.857146584258,15.4768007355277" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-376.857146584258,15.4768007355277"
+                    Point2="-380.857146584258,15.4768007355277"
+                    Point3="-380.857146584258,19.4768007355277" />
+                  <mssgle:LineSegment
+                    End="-380.857146584258,31.0803902950533" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="660.5,260">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.7,67"
+              Start="0,0"
+              End="22.7,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.0773930753564" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.0773930753564"
+                    Point2="0,47.0773930753564"
+                    Point3="4,47.0773930753564" />
+                  <mssgle:LineSegment
+                    End="18.7,47.0773930753564" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.7,47.0773930753564"
+                    Point2="22.7,47.0773930753564"
+                    Point3="22.7,51.0773930753564" />
+                  <mssgle:LineSegment
+                    End="22.7,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.89134765625,52.0773930753564,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="768.190479917591,178.419609704947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-85.257146584258,148.580390295053"
+              Start="0,0"
+              End="-85.257146584258,141.080390295053">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.0538119689581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,87.0538119689581"
+                    Point2="0,91.0538119689581"
+                    Point3="-4,91.0538119689581" />
+                  <mssgle:LineSegment
+                    End="-81.257146584258,91.0538119689581" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-81.257146584258,91.0538119689581"
+                    Point2="-85.257146584258,91.0538119689581"
+                    Point3="-85.257146584258,95.0538119689581" />
+                  <mssgle:LineSegment
+                    End="-85.257146584258,141.080390295053" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-57.869920948379,96.0538119689581,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="146.428572100036,89.6117631100453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="457.171427899964,237.388236889955"
+              Start="0,0"
+              End="457.171427899964,229.888236889955">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,212.486526038409" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,212.486526038409"
+                    Point2="0,216.486526038409"
+                    Point3="4,216.486526038409" />
+                  <mssgle:LineSegment
+                    End="453.171427899964,216.486526038409" />
+                  <mssgle:CubicBezierSegment
+                    Point1="453.171427899964,216.486526038409"
+                    Point2="457.171427899964,216.486526038409"
+                    Point3="457.171427899964,220.486526038409" />
+                  <mssgle:LineSegment
+                    End="457.171427899964,229.888236889955" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="213.344366293732,221.486526038409,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="387,70.3058815550227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-102.571427899964,0"
+              Start="0,0"
+              End="-95.071427899964,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-95.071427899964,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="283.428572100036,243.29411946597">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.57142183732,0"
+              Start="0,0"
+              End="-38.07142183732,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-38.07142183732,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="379.761905433369,158.086276371613">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.095241150889,0"
+              Start="0,0"
+              End="103.595241150889,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="103.595241150889,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.4931674504443,5,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="508,241.62647151914">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70.571427899964,0"
+              Start="0,0"
+              End="-63.071427899964,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-63.071427899964,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-56.840167074982,5,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="646.857150262716,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="244,-65.9999999999998"
+              Start="0,0"
+              End="244,-58.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-26.9999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-26.9999999999999"
+                    Point2="0,-30.9999999999999"
+                    Point3="4,-30.9999999999999" />
+                  <mssgle:LineSegment
+                    End="240,-30.9999999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="240,-30.9999999999999"
+                    Point2="244,-30.9999999999999"
+                    Point3="244,-34.9999999999999" />
+                  <mssgle:LineSegment
+                    End="244,-58.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="727,347.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="80.857150262716,0"
+              Start="0,0"
+              End="73.357150262716,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="73.357150262716,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="620.345241798025,369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64.9999999999998"
+              Start="0,0"
+              End="0,57.4999999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.4999999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.24134765625,23.8754882812499,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="142.357150262716,262.835295893659">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="443.392849737284,64.164704106341"
+              Start="0,0"
+              End="443.392849737284,56.664704106341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.2324125596585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.2324125596585"
+                    Point2="0,42.2324125596585"
+                    Point3="4,42.2324125596585" />
+                  <mssgle:LineSegment
+                    End="439.392849737284,42.2324125596585" />
+                  <mssgle:CubicBezierSegment
+                    Point1="439.392849737284,42.2324125596585"
+                    Point2="443.392849737284,42.2324125596585"
+                    Point3="443.392849737284,46.2324125596585" />
+                  <mssgle:LineSegment
+                    End="443.392849737284,56.664704106341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="206.455077212392,47.2324125596585,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="262,42"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE"
+          TopLeft="243,240" />
+        <NodeLayout
+          Size="214.666666666667,42"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR"
+          TopLeft="270,40" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Data Conversion"
+          TopLeft="302,142" />
+        <EdgeLayout
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE.Paths[Excel Source Output]"
+          TopLeft="378.75,82">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE.Paths[Data Conversion Output]"
+          TopLeft="377,184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\STG_MAM_DETALLE_STOCK_VIGENTE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\02 - CS_STG_MAM_DETALLE_STOCK_VIGENTE\Carga STG_MAM_DETALLE_STOCK_VIGENTE\Detalle_Stock_Vigente_SCTR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

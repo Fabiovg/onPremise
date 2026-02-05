@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="CnxOracle64bits"
+  DTS:DTSID="{F031ADF7-6CE4-4592-AEF8-7994038BEE28}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=172.30.11.83:1521/odw1;User ID=consulta;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="2jIZsmAN9Q=="
+        p4:IV="HVMX2WBnrBg=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">hfSFfHHsfeVVX4YG9sFK58CkjfRs3a9S6oLTgNSN2cixy5HK5rLQoEoNV3PKKkgjGDGvQJE84kCgCImJdwd2Bj113o1+5+mxVU5w1wIfn6GyTjo46/uiOjawaw8YVHdUqARucUBL8jERFgp43CBhONsvAQXBy6Di</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

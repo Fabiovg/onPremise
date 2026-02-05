@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "PY_DW_SALUD", "Pacifico\PY_DW_SALUD.dtproj", "{087062F1-42F2-4BBB-AB4E-2D2A7F6357AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{087062F1-42F2-4BBB-AB4E-2D2A7F6357AD}.Development|Default.ActiveCfg = Development
+		{087062F1-42F2-4BBB-AB4E-2D2A7F6357AD}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1623254D-9C86-4F9D-83B1-731EACEFD104}
+	EndGlobalSection
+EndGlobal

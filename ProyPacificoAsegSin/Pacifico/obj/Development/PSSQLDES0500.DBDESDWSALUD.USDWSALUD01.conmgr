@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PSSQLDES0500 DBDESDWSALUD USDWSALUD01"
+  DTS:DTSID="{DA1BFF89-4701-4A6B-ADEE-8CFD3D8ED3DA}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::DataBase]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::ServerName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PSSQLPRD1600;User ID=USDWSALUD01;Initial Catalog=DBPRODDWSALUD;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="A/nhMY8sCQ=="
+        p4:IV="69bUmdZPNDE=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">FL3HEVkqVPexRjtjyAGROvFu87ILMXGiks2V8hHVG/Ey+435vVZDnKgVGA0zFTOpUEWUQ10Z35NQUbm3aLD68igYLT7dhcgh/YcecOVa/FJsuuuhtz44VoMBRKPKsUaBpTFOSnSbLtt/D0Q1ApaoamCTpdgbpRmpIYWGo4f5YI0=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
